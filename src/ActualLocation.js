@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import React, { useState } from 'react';
 import City from './City';
+import getImageForWeather from './utils/getImageForWeather';
 
 
 function ActualLocation(props){

@@ -19,7 +19,7 @@ function City(props){
 
 
 
-    return  <div className="summaryDisplay container" onClick={()=>{props.changeCity(props.name)}} >
+    return  <div className="summaryDisplay container-fluid" onClick={()=>{props.changeCity(props.name)}} >
         <div className="row">
         <div className="col-sm-8" id="name">{name}</div>
         <div className="col-sm-4" id="temp">{temp}°C</div>
