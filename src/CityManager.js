@@ -17,9 +17,6 @@ function CityManager(props){
         
     }
 
-    function verify(props){
-        console.log(props.name);
-    }
 
     return(
         <div>

@@ -1,7 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import City from './City';
+import Component from './Component';
+import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
+
 
 function CityList(props){
 
@@ -19,27 +21,35 @@ function AddCity(props){
 
     const [ city, setCity ] = useState("");
 
-    function handleSubmit(e){
+    function handleSubmit(){
         props.addCity(city);
         setCity("");
-        e.preventDefault();
+        
     }
 
     function handleChange(e){
-        const location = e.target.value;
-        setCity(e.target.value)
+        /*const location = e.target.value;
+        setCity(e.target.value)*/
+        console.log(e.label);
+        props.addCity(e.label);
+        
+    }
+
+    function verify(){
+        console.log(city);
     }
 
     return(
-    <form onSubmit={handleSubmit} className="form-inline">
-        <div className="col">
-        <input type="text" className="form-control" placeholder="Add new city" onChange={handleChange} value={city} />
         
+        <div>
+        <GooglePlacesAutocomplete apiKey={"AIzaSyBbR7n4irNa7wIsnnBKaVafagAo56a8nc0"}         
+            selectProps={{
+           
+            onChange: handleChange,}} 
+        />
+       
+      </div>
         
-        <button type="submit" className="btn btn-primary mb-2">Add</button>
-     
-        </div>
-    </form>
     );
 }
 
